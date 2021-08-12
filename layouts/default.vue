@@ -40,7 +40,7 @@
         icon
         @click.stop="clipped = !clipped"
       >
-        <v-icon>mdi-application</v-icon>
+      <v-icon>mdi-application</v-icon>
       </v-btn>
       <!-- <v-btn
         icon
@@ -105,6 +105,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Expense',
           to: '/expense'
+        },
+        {
+          icon:'mdi-alphabet-p-box',
+          title:'Posts',
+          to: '/posts'
         }
       ],
       miniVariant: false,

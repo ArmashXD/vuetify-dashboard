@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center">
-          <v-card elevation="3" 
+    <v-card elevation="3" 
           class="mt-4"
           max-width="600">
 
@@ -13,17 +13,17 @@
         Calculate
         </v-list-item-title>
      <v-form
-    ref="form"
-  >
+     ref="form">
+
     <v-text-field
       v-model="number1"
       label="Number 1"
       required
-    ></v-text-field>
+    >
+    </v-text-field>
 
     <v-text-field
       v-model="number2"
-      :rules="emailRules"
       label="Number 2"
       required
     ></v-text-field>
@@ -39,46 +39,19 @@
     <v-btn
       color="success"
       class="mr-4"
+      style="float:right"
         @click="calculate"
     >
     Calculate
     </v-btn>
 
-    <!-- <v-btn
-      color="error"
-      class="mr-4"
-      @click="reset"
-    >
-      Reset Form
-    </v-btn>
-
-    <v-btn
-      color="warning"
-      @click="resetValidation"
-    >
-      Reset Validation
-    </v-btn> -->
   </v-form>
-        
+          <v-banner elevation="2" class="mt-2" align="center">
+              {{ result }}
+          </v-banner>
             </v-list-item-content>
          </v-list-item>
             </v-card>
-              <v-snackbar
-      v-model="snackbar"
-    >
-      {{ result }}
-
-      <template v-slot:action="{ attrs }">
-        <v-btn
-          color="pink"
-          text
-          v-bind="attrs"
-          @click="snackbar = false"
-        >
-          Close
-        </v-btn>
-      </template>
-    </v-snackbar>
   </v-row>
 </template>
 
@@ -104,22 +77,18 @@ export default {
             if(this.select == '+')
             {
                 this.result = parseInt(this.number1) + parseInt(this.number2)
-                this.snackbar = true;
             }
             if(this.select == '-')
             {
                 this.result = parseInt(this.number1) - parseInt(this.number2)
-                this.snackbar = true;
             }
             if(this.select == '*')
             {
                 this.result = parseInt(this.number1) * parseInt(this.number2)
-                this.snackbar = true;
             }
             if(this.select == '/')
             {
                 this.result = parseInt(this.number1) / parseInt(this.number2)
-                this.snackbar = true;
             }
         }
     }
