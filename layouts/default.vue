@@ -110,6 +110,11 @@ export default {
           icon:'mdi-alphabet-p-box',
           title:'Posts',
           to: '/posts'
+        },
+        {
+          icon:'mdi-alphabet-p-box',
+          title:'Table',
+          to: '/table'
         }
       ],
       miniVariant: false,

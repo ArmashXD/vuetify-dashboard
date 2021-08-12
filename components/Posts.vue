@@ -12,8 +12,8 @@
        
       </p>
       <div class="text--primary">
-        relating to or dependent on charity; charitable.<br>
-        "an eleemosynary educational institution."
+       {{post.userId}}<br>
+      {{post.body}}
       </div>
     </v-card-text>
     <v-card-actions>
@@ -34,9 +34,9 @@
       >
         <v-card-text class="pb-0">
           <p class="text-h4 text--primary">
-            Origin
+            Body
           </p>
-          <p>late 16th century (as a noun denoting a place where alms were distributed): from medieval Latin eleemosynarius, from late Latin eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’ </p>
+          <p></p>
         </v-card-text>
         <v-card-actions class="pt-0">
           <v-btn
