@@ -1,7 +1,5 @@
 <template>
-<v-container
-    :key="align"
->
+<div>
     <v-dialog
       v-model="dialog"
       persistent
@@ -75,70 +73,76 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-
-
-   <v-row
-    :align="align"
-    no-gutters
-    style="height: 150px;"
- >
-    <v-col
-      cols="12"
-      sm="12"
-      offset-sm="12"
-    >
-      <v-card max-width="">
-        <v-list two-line>
-          <template v-for="(item, index) in items.slice(0, 6)">
-            <v-subheader
-              v-if="item.header"
-              :key="item.header"
-            >
-              {{ item.header }}
-            </v-subheader>
-            <v-divider
-              v-else-if="item.divider"
-              :key="index"
-            ></v-divider>
-            <v-list-item
-              v-else
-              :key="item.title"
-            >
-              <v-list-item-content >
-                <v-list-item-title v-html="item.title"></v-list-item-title>
-                <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
-              </v-list-item-content>
-              <v-list-item-action>
+  <v-container>
+    <v-card elevation="4">
+<v-simple-table >
+    <template>
+      <thead>
+        <tr>
+          <th class="text-left">
+            Title
+          </th>
+          <th class="text-left">
+            Description
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="item in items"
+          :key="item.id"
+        >
+          <td>{{ item.heading }}</td>
+          <td 
+          >{{ item.descripton }}</td>
+          <td>
             <v-btn color="success">
               <v-icon dark>
-                mdi-wrench
-              </v-icon> 
+          mdi-wrench
+        </v-icon> 
             </v-btn>
-
-              </v-list-item-action>
-            </v-list-item>
-          </template>
-        </v-list>
-      </v-card>
-    </v-col>
-  </v-row>
-  </v-container>
-
+                        <v-btn color="red" class="ma-2" dark>
+              <v-icon   dark
+          >
+         mdi-cancel
+        </v-icon> 
+            </v-btn>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+ 
+</v-simple-table>
+   </v-card>
+</v-container>
+</div>
 </template>
 <script>
 export default {
   data(){
     return{
-        items: [
-        { header: 'Today' },
-        { title: '<span class="font-weight-bold" style="color:blue">Low</span>', subtitle: `<span class="font-weight-bold">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?` },
-        { divider: true,},
-        { title: '<span class="font-weight-bold" style="color:green">Medium</span>', subtitle: `<span class="font-weight-bold">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.` },
-        { divider: true, },
-        { avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg', title: '<span class="font-weight-bold" style="color:red">High</span>', subtitle: '<span class="font-weight-bold">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?' },
-      ],
+       items: [],
        align:'start',
        dialog: false,
+       edit : false,
+    }
+  },
+  mounted(){
+    this.getTasks();
+  },
+  methods:{
+    getTasks(){
+        this.$axios.get('http://localhost:8000/api/tasks')
+        .then((response)=>{
+          this.items = response.data;
+          console.log(this.items);
+        })
+        .catch((e)=>{
+            console.log(e);
+        })
     }
   }
 }

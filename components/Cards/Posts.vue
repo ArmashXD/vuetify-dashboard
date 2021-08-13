@@ -48,10 +48,8 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-      
-        </v-expand-transition>
-    </v-card>
-
+          </v-expand-transition>
+            </v-card>
         </v-col>
     </div>
 </template>

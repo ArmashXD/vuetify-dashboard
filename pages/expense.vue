@@ -2,7 +2,7 @@
   <v-row justify="center" align="center">
     <v-card elevation="3" 
           class="mt-4"
-          max-width="600">
+          max-width="500">
 
          <v-list-item three-line>
             <v-list-item-content>
