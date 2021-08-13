@@ -97,7 +97,7 @@ export default {
       fixed: true,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home',
           title: 'Welcome',
           to: '/'
         },
@@ -107,20 +107,26 @@ export default {
           to: '/expense'
         },
         {
-          icon:'mdi-alphabet-p-box',
+          icon:'mdi-apps',
           title:'Posts',
           to: '/posts'
         },
         {
-          icon:'mdi-alphabet-p-box',
+          icon:'mdi-table',
           title:'Table',
           to: '/table'
+        },
+        {
+          icon:'mdi-account',
+          title:'Profile',
+          to: '/profile'
         }
+
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Dashboard'
     }
   }
 }

@@ -9,7 +9,7 @@
         no-gutters
         style="height: 150px;"
       >
-           <Posts v-for="item in items" :key="item.id" :post="item"/>
+           <CardsPosts v-for="item in items" :key="item.id" :post="item"/>
       </v-row>
     </v-container>
 
