@@ -51,7 +51,7 @@
           </v-banner>
             </v-list-item-content>
          </v-list-item>
-            </v-card>
+    </v-card>
   </v-row>
 </template>
 
