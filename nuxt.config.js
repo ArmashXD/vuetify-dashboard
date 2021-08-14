@@ -40,11 +40,24 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    "@nuxtjs/auth-next",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
+  axios: {
+    baseURL:"http://localhost:8000/api"
+  },
+  auth: {
+    strategies:{
+      local:{
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName:"meta.token"},
+          logout: { url: '/logout', method: 'post' },
+          user: { url: '/user', method: 'get',propertyName:"data" }
+        }
+      }
+    }
+  },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

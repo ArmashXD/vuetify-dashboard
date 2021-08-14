@@ -1,6 +1,5 @@
 <template>
     <v-container
-
     >
         <v-card elevation="4" class="pa-2">
          <v-list-item-title class="text-h5 mb-1">

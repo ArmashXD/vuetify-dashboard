@@ -113,6 +113,11 @@ export default {
           to: '/'
         },
         {
+          icon:'mdi-application',
+          title:'Your Tasks',
+          to: '/tasks',
+        },
+        {
           icon: 'mdi-chart-bubble',
           title: 'Expense',
           to: '/expense'
