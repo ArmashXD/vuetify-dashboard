@@ -2,7 +2,7 @@
   <div>
     <v-container>
            <v-dialog v-model="dialog" persistent max-width="600px">
-      <template v-slot:activator="{ on, attrs }">
+      <template v-slot:activator="{ on }">
         <v-btn color="success" dark v-bind="attrs" v-on="on" class="mb-4">
           Add New
         </v-btn>
@@ -57,6 +57,7 @@
 </template>
 <script>
 export default {
+  middleware:['auth'],
   data() {
     return {
       items: [],

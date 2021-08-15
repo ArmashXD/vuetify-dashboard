@@ -22,7 +22,7 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
-             <v-list-item>
+        <v-list-item @click.prevent="logout">
           <v-list-item-action>
             <v-icon>mdi-cancel</v-icon>
           </v-list-item-action>
@@ -143,6 +143,12 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Dashboard'
+    }
+  },
+  methods:{
+    logout(){
+        this.$auth.logout();
+        this.$router.push('/')
     }
   }
 }

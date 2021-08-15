@@ -25,7 +25,7 @@
                         </v-text-field>
                         <v-btn class="mr-4" type="submit" color="success"
                            :loading="loadingBtn"
-                            :disabled="loadingBtn"
+                           :disabled="loadingBtn"
                         >
                             Save
                         </v-btn>
@@ -38,6 +38,7 @@
 
 <script>
 export default {
+    middleware:['auth'],
     data(){
         return{
             form:{

@@ -30,17 +30,26 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  router:{
+    middleware:["clearValidationErrors"]
+  },
+
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
-
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+    "@/plugins/mixins/validation.js",
+    "@/plugins/axios.js",
+    "@/plugins/mixins/user.js",
+  ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    "@nuxtjs/auth-next",
+    "@nuxtjs/auth"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
